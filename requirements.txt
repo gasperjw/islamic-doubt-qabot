@@ -7,4 +7,4 @@ tabulate
 pdf2image
 streamlit
 tiktoken
-unstructured
+unstructured[pdf]
