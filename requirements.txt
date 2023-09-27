@@ -7,5 +7,3 @@ tabulate
 pdf2image
 streamlit
 tiktoken
-unstructured[pdf]
-partition_pdf
