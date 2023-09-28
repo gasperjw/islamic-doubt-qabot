@@ -55,7 +55,7 @@ def embedding_db():
     )
     return doc_db
 
-llm = ChatOpenAI(temperature = 0)
+llm = ChatOpenAI()
 doc_db = embedding_db()
 
 def retrieval_answer(query):
