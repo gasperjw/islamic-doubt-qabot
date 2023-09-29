@@ -83,7 +83,6 @@ def retrieval_answer(query):
     Answer by sympathizing with the person then making your answer like an argument. At the end, give the source. If you couldn't answer say something like, "If this doesn’t fully address your question or if you’re looking for more comprehensive insights, I would kindly recommend reaching out to a qualified scholar who can provide personalized guidance and support.""""
     
 
-    
     PROMPT = PromptTemplate(
         template=prompt_template, input_variables=["context", "question"]
     )
