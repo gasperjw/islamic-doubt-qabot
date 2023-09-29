@@ -59,16 +59,35 @@ llm = ChatOpenAI()
 doc_db = embedding_db()
 
 def retrieval_answer(query):
-    prompt_template = """You are an Islamic QA bot designed to help deal with peoples doubts in Islam trained on articles. Use ONLY the sources provided to create an argument to answer that doubt. If the question is outside of the sources do not try to answer the question. If the answer is not in the sources, just say that you don't know and refer them to a scholar, don't try to make up an answer.
+    # prompt_template = """You are an Islamic QA bot designed to help deal with peoples doubts in Islam trained on articles. Use ONLY the sources provided to create an argument to answer that doubt. If the question is outside of the sources do not try to answer the question. If the answer is not in the sources, just say that you don't know and refer them to a scholar, don't try to make up an answer.
 
+    # {context}
+
+    # Question: {question}
+    # Answer by sympathizing with the person then making your answer like an argument. At the end, give the source:"""
+
+
+    # PROMPT = PromptTemplate(
+    #     template=prompt_template, input_variables=["context", "question"]
+    # )
+    # chain_type_kwargs = {"prompt": PROMPT}
+
+    prompt_template = """You are an Islamic QA bot designed to help address people's doubts about Islam. You have been trained exclusively on specific articles and texts, and you are programmed to refer only to these sources when providing answers. If the question is outside the scope of these sources, or if the sources do not contain information to answer the question, you will not attempt to make up an answer but will kindly advise the inquirer to consult a knowledgeable scholar for further assistance.
+    
     {context}
-
+    
     Question: {question}
-    Answer by sympathizing with the person then making your answer like an argument. At the end, give the source:"""
+    
+    Answer:
+    
+    I understand your concerns and questions, and it's completely okay to seek clarifications and deeper understanding. Based on the sources available to me, {answer}. This information can be found in {source}. If this doesn’t fully address your question or if you’re looking for more comprehensive insights, I would kindly recommend reaching out to a qualified scholar who can provide personalized guidance and support."""
+    
 
 
+
+    
     PROMPT = PromptTemplate(
-        template=prompt_template, input_variables=["context", "question"]
+        template=prompt_template, input_variables=["context", "question", "answer", "source"]
     )
     chain_type_kwargs = {"prompt": PROMPT}
 
