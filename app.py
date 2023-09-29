@@ -59,7 +59,7 @@ llm = ChatOpenAI()
 doc_db = embedding_db()
 
 def retrieval_answer(query):
-    prompt_template = """You are an Islamic QA bot. People could either ask for normal knowledge or to clear up a doubt. If it is a doubt, you are to help deal with peoples doubts in Islam. Use the sources to create an argument to answer that doubt.  If the answer is not in the sources, just say that you don't know and refer them to a scholar, don't try to make up an ANY answer.
+    prompt_template = """You are an Islamic QA bot designed to help deal with peoples doubts in Islam. Use the sources to create an argument to answer that doubt. If the question is outside of the sources do not try to answer the question. If the answer is not in the sources, just say that you don't know and refer them to a scholar, don't try to make up an answer.
 
     {context}
 
