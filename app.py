@@ -80,14 +80,12 @@ def retrieval_answer(query):
     
     Answer:
     
-    I understand your concerns and questions, and it's completely okay to seek clarifications and deeper understanding. Based on the sources available to me, {answer}. This information can be found in {source}. If this doesn’t fully address your question or if you’re looking for more comprehensive insights, I would kindly recommend reaching out to a qualified scholar who can provide personalized guidance and support."""
+    Answer by sympathizing with the person then making your answer like an argument. At the end, give the source. If you couldn't answer say something like, "If this doesn’t fully address your question or if you’re looking for more comprehensive insights, I would kindly recommend reaching out to a qualified scholar who can provide personalized guidance and support.""""
     
-
-
 
     
     PROMPT = PromptTemplate(
-        template=prompt_template, input_variables=["context", "question", "answer", "source"]
+        template=prompt_template, input_variables=["context", "question"]
     )
     chain_type_kwargs = {"prompt": PROMPT}
 
